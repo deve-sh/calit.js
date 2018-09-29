@@ -50,7 +50,6 @@ var remdays;
 
 // Now the functions
 
-
 /*
   Function to initialise the values for the setting of the calendar widget based on the values obtained from the user.
 */
@@ -238,6 +237,8 @@ function setcal(element,todate,month,year)
 
   if(remdays!=0)
   {
+    // For the days remaining in the month.
+      
     ccalendar+="<tr>";
     for(i=1;i<=remdays;i++)
     {
@@ -261,13 +262,14 @@ function setcal(element,todate,month,year)
   ccalendar+="</table></div>";
 
   document.getElementById(element).innerHTML=ccalendar;
-
+    
+  /* Styling of the created table and element. */
+    
   document.getElementById(element).setAttribute('style','padding : 0px; background: #ffffff; display : inline-block;border: 1px solid #efefef;');
 
   var tds=document.getElementsByClassName('caltd');
 
   var labels=document.getElementsByClassName('callabels');
-
 
   var t=0,p=0;
 
@@ -291,5 +293,8 @@ function setcal(element,todate,month,year)
   }
 
 }
+/*  End of Execution. Now Run of the Calendar. */
 
-/*  End  */
+document.addEventListener('load',setcal());   // If no function call has been created in the linked HTML file.
+
+/* Finished. */
