@@ -1,7 +1,7 @@
 /*
     CALIT.JS
     ----
-    JavaScript Featurette to Introduce a Calendar to a given element in the form of a table.
+    JavaScript Utility to Introduce a Calendar to a given element in the form of a table.
     Programmed by Devesh Kumar.
     http://github.com/deve-sh
 */
@@ -46,7 +46,6 @@ var nweeks;
 var todaysday;
 var dynamicdate;
 var remdays;
-
 
 // Now the functions
 
@@ -160,8 +159,10 @@ function initialise(month,year,datef)    // The backbone of the entire code.
     If There is no argument passed into the funtion, there are default values that are set for the execution.
 */
 
-function setcal(element,todate,month,year)
+function setcal(element,todate,month,year,calback,bordback,textcol,highcol)
 {
+  /* Setting the default values of each variable in case they have not been passed. */
+
   if(element)
   {
     element=element.toString();    // Converted the passed argument to string if it already wasn't.
@@ -169,6 +170,42 @@ function setcal(element,todate,month,year)
   else
   {
     element='calendar';     // Let's assume the id was named calendar. Because appending to a page node is silly.
+  }
+
+  if(!calback)
+  {
+    calback='#ffffff';
+  }
+  else
+  {
+    calback=calback.toString();
+  }
+
+  if(!bordback)
+  {
+    bordback='#0388d4';
+  }
+  else
+  {
+    bordback=bordback.toString();
+  }
+
+  if(!textcol)
+  {
+    textcol='#000000';
+  }
+  else
+  {
+    textcol=textcol.toString();
+  }
+
+  if(!highcol)
+  {
+    highcol='#ffffff';
+  }
+  else
+  {
+    highcol=highcol.toString();
   }
 
   if(!todate)
@@ -265,7 +302,7 @@ function setcal(element,todate,month,year)
     
   /* Styling of the created table and element. */
     
-  document.getElementById(element).setAttribute('style','padding : 0px; background: #ffffff; display : inline-block;border: 1px solid #efefef;');
+  document.getElementById(element).setAttribute('style','padding : 0px; background: ' + calback + '; display : inline-block;border: 1px solid #efefef;color : '+textcol+';');
 
   var tds=document.getElementsByClassName('caltd');
 
@@ -283,13 +320,13 @@ function setcal(element,todate,month,year)
     document.getElementsByClassName('callabels')[p].setAttribute('style','font-size: 12px;');
   }
 
-  document.getElementsByClassName('calwidget')[0].setAttribute('style','border-top: 30px solid #0388d4; padding: 20px;');
+  document.getElementsByClassName('calwidget')[0].setAttribute('style','border-top: 30px solid ' + bordback + '; padding: 20px;');
 
   // Changing the highlighted table data column's style.
 
   if(document.getElementsByClassName('caltdhigh')[0])   // If one actually exists.
   {
-    document.getElementsByClassName('caltdhigh')[0].setAttribute('style','padding:8px; background : #0388d4; color: #ffffff; text-align: center;')
+    document.getElementsByClassName('caltdhigh')[0].setAttribute('style','padding:8px; background : '+ bordback +'; color: ' + highcol +'; text-align: center;')
   }
 
 }
