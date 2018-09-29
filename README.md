@@ -1,2 +1,2 @@
 # calit.js
-A JavaScript Featurette For a Calendar Widget
+A JavaScript Utility For a Calendar Widget
