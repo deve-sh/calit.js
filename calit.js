@@ -3,6 +3,7 @@
     ----
     JavaScript Utility to Introduce a Calendar to a given element in the form of a table.
     Programmed by Devesh Kumar.
+    Don't Get Mad at me. The main aim of this was to use no classes and objects.
     http://github.com/deve-sh
 */
 
@@ -46,6 +47,7 @@ var nweeks;
 var todaysday;
 var dynamicdate;
 var remdays;
+var execution=0;
 
 // Now the functions
 
@@ -150,6 +152,8 @@ function initialise(month,year,datef)    // The backbone of the entire code.
     nweeks=parseInt(ndays/7);
     remdays=ndays%7;
   }
+
+  execution++;   // One round of execution completed.
 }
 
 
@@ -208,13 +212,36 @@ function setcal(element,todate,month,year,calback,bordback,textcol,highcol)
     highcol=highcol.toString();
   }
 
+  if(!month)   // If the month or year weren't entered or even mentioned in the function call.
+  {
+    month=today.getMonth();
+  }
+  else
+  {
+    if(month>12 || month<0)
+    {
+      month=today.getMonth();
+    }
+    else
+    {
+      month=parseInt(month);
+    }
+  }
+
   if(!todate)
   {
     todate=today.getDate();
   }
   else
   {
-    todate=parseInt(todate);
+    if(todate>31 || todate<1 || (todate>29 && month==2))
+    {
+       todate=today.getDate();
+    }
+    else
+    {
+      todate=parseInt(todate);
+    }
   }
 
   if(!year)
@@ -224,15 +251,6 @@ function setcal(element,todate,month,year,calback,bordback,textcol,highcol)
   else
   {
     year=parseInt(year);
-  }
-
-  if(!month)   // If the month or year weren't entered or even mentioned in the function call.
-  {
-    month=today.getMonth();
-  }
-  else
-  {
-    month=parseInt(month);
   }
 
   userdate=new Date(todate+" "+montharray[month]+" "+year);   // Creating a date format.
@@ -245,7 +263,7 @@ function setcal(element,todate,month,year,calback,bordback,textcol,highcol)
 
   var ccalendar="<div class='calwidget' align='center'>"+montharray[month]+" - "+year+"<br/><br/><table>";
 
-  var i,j,count=1;   // Counter Variable
+  var i,j,count=1;   // Counter Variables
 
   for(i=1;i<=nweeks;i++)
   {
@@ -300,9 +318,9 @@ function setcal(element,todate,month,year,calback,bordback,textcol,highcol)
 
   document.getElementById(element).innerHTML=ccalendar;
     
-  /* Styling of the created table and element. */
+  /* Styling of the created table and elements. */
     
-  document.getElementById(element).setAttribute('style','padding : 0px; background: ' + calback + '; display : inline-block;border: 1px solid #efefef;color : '+textcol+';');
+  document.getElementById(element).setAttribute('style','display : inline-block;border: 1px solid #efefef;');
 
   var tds=document.getElementsByClassName('caltd');
 
@@ -320,14 +338,21 @@ function setcal(element,todate,month,year,calback,bordback,textcol,highcol)
     document.getElementsByClassName('callabels')[p].setAttribute('style','font-size: 12px;');
   }
 
-  document.getElementsByClassName('calwidget')[0].setAttribute('style','border-top: 30px solid ' + bordback + '; padding: 20px;');
+  var calendars=document.getElementsByClassName('calwidget');
 
+  for(i=0;i<calendars.length;i++)
+  {
+    document.getElementsByClassName('calwidget')[i].setAttribute('style','color : '+textcol+';padding : 0px; background: ' + calback + '; border-top: 30px solid ' + bordback + '; padding: 20px;');
+  }
+  
   // Changing the highlighted table data column's style.
 
-  if(document.getElementsByClassName('caltdhigh')[0])   // If one actually exists.
-  {
-    document.getElementsByClassName('caltdhigh')[0].setAttribute('style','padding:8px; background : '+ bordback +'; color: ' + highcol +'; text-align: center;')
-  }
+  var highlightedelements=document.getElementsByClassName('caltdhigh');
+
+    for(i=0;i<highlightedelements.length;i++)
+    {
+        document.getElementsByClassName('caltdhigh')[i].setAttribute('style','padding:8px; background : '+ bordback +'; color: ' + highcol +'; text-align: center;')
+    }
 
 }
 /*  End of Execution. Now Run of the Calendar. */
