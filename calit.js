@@ -257,7 +257,7 @@ function setcal(element,todate,month,year,calback,bordback,textcol,highcol)
 
   initialise(month,year,userdate);     // Calling the initialise function.
 
-  document.getElementById(element).innerHTML="";  // Cleared the entire Inner HTML Of the Element.
+  document.getElementById(element).innerHTML="";  // Cleared the entire Inner HTML Of the Element To Insert the calendar.
 
   // Now adding the calendar to the element.
 
@@ -320,38 +320,38 @@ function setcal(element,todate,month,year,calback,bordback,textcol,highcol)
     
   /* Styling of the created table and elements. */
     
-  document.getElementById(element).setAttribute('style','display : inline-block;border: 1px solid #efefef;');
+  document.getElementById(element).setAttribute('style','display : inline-block;border: 1px solid #efefef;max-width: 95vw;');
 
-  var tds=document.getElementsByClassName('caltd');
+  var tds=document.getElementById(element).getElementsByClassName('caltd');
 
-  var labels=document.getElementsByClassName('callabels');
+  var labels=document.getElementById(element).getElementsByClassName('callabels');
 
   var t=0,p=0;
 
   for(t=0;t<tds.length;t++)    // Updating the style of the table data.
   {
-    document.getElementsByClassName('caltd')[t].setAttribute('style','padding:7px; text-align: center;');
+    document.getElementById(element).getElementsByClassName('caltd')[t].setAttribute('style','padding:7px; text-align: center;');
   }
 
   for(p=0;p<labels.length;p++)
   {
-    document.getElementsByClassName('callabels')[p].setAttribute('style','font-size: 12px;');
+    document.getElementById(element).getElementsByClassName('callabels')[p].setAttribute('style','font-size: 12px;');
   }
 
-  var calendars=document.getElementsByClassName('calwidget');
+  var calendars=document.getElementById(element).getElementsByClassName('calwidget');
 
   for(i=0;i<calendars.length;i++)
   {
-    document.getElementsByClassName('calwidget')[i].setAttribute('style','color : '+textcol+';padding : 0px; background: ' + calback + '; border-top: 30px solid ' + bordback + '; padding: 20px;');
+    document.getElementById(element).getElementsByClassName('calwidget')[i].setAttribute('style','color : '+textcol+';padding : 0px; background: ' + calback + '; border-top: 30px solid ' + bordback + '; padding: 20px;');
   }
   
   // Changing the highlighted table data column's style.
 
-  var highlightedelements=document.getElementsByClassName('caltdhigh');
+  var highlightedelements=document.getElementById(element).getElementsByClassName('caltdhigh');
 
     for(i=0;i<highlightedelements.length;i++)
     {
-        document.getElementsByClassName('caltdhigh')[i].setAttribute('style','padding:8px; background : '+ bordback +'; color: ' + highcol +'; text-align: center;')
+        document.getElementById(element).getElementsByClassName('caltdhigh')[i].setAttribute('style','padding:8px; background : '+ bordback +'; color: ' + highcol +'; text-align: center;')
     }
 
 }
