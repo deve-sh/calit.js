@@ -83,7 +83,7 @@ function initialise(month,year,datef)    // The backbone of the entire code.
     {
       if((datef.getMonth()+1)==2)  // If the month is february.
       {
-        if(year%400==0 && year%4==0)    // If the year is a leap year.
+        if(year%400==0 || (year%4==0 && year%100!==0))    // If the year is a leap year.
         {
           ndays=29;
         }
@@ -123,7 +123,7 @@ function initialise(month,year,datef)    // The backbone of the entire code.
     {
       if((month+1)==2)
       {
-        if(datef.getFullYear()%4==0 && datef.getFullYear()%400==0)
+        if((datef.getFullYear()%4==0 && datef.getFullYear()%100!==0) || datef.getFullYear()%400==0)
         {
           ndays=29;
         }
