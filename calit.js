@@ -253,6 +253,8 @@ function setcal(element,todate,month,year,calback,bordback,textcol,highcol)
     year=parseInt(year);
   }
 
+  // I know all that could have been done in the function decleration, but this is much less cluttered and much more readable.
+
   userdate=new Date(todate+" "+montharray[month]+" "+year);   // Creating a date format.
 
   initialise(month,year,userdate);     // Calling the initialise function.
