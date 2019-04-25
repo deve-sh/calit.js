@@ -1,0 +1,15 @@
+#first{
+	height: auto;
+}
+
+.menu{
+	display: none;
+}
+
+.smallmenu{
+	display: inline-block;
+}
+
+.followtext{
+	display: none;
+}

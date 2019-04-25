@@ -1,0 +1,376 @@
+*{
+	transition: 0.4s;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing : border-box;
+}
+
+body{
+	margin: 0px;
+	font-family: Montserrat,sans-serif;
+	padding: 0px;
+	background: #ffffff;
+	color: #000000;
+	line-height: 1.6;
+	font-size: 18px;
+	width: 100%;
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
+header{
+   background: #ffffff;
+   border-bottom: 1px solid #cfcfcf;
+   font-family: Montserrat,sans-serif;
+   position: fixed;
+   width: 100%;
+   padding: 0px;
+   font-size: 19px;
+   max-width: 100vw;
+}
+
+header .left{
+	padding: 20px;
+	float: left;
+	width: 40%;
+}
+
+#first{
+   height: auto;
+   padding: 30px;
+   color: #000000;
+   font-size: 30px;
+   padding-bottom: 70px;
+}
+
+.smalltext{
+   font-size: 20px;
+}
+
+.atom{
+	background: #282c34;
+	color: #ffffff;
+	padding: 20px;
+	text-shadow: 0 3px 10px rgba(0,0,0,.2);
+	font-family: Consolas,sans-serif;
+	font-size : 16px;
+	border-radius: 3px;
+	box-shadow: inset 0 3px 3px rgba(0,0,0,.2);
+	overflow-x: auto;
+}
+
+/* Sub Codes */
+
+.tag{
+	color: #EC5F5F;
+}
+
+.att{
+	color: #C594C5;
+}
+
+.aps{
+	color: #5CA18F;
+}
+
+.str{
+	color: #99C794;
+}
+
+.comment{
+	color: #98ADBA;
+}
+
+#second{
+	background: #f2f2f2;
+	color: #343434;
+	padding: 20px;
+	width: 100%;
+	max-width: 100vw;
+	height: auto;
+}
+
+#fourth{
+	background: #1f80d5;
+	color: #ffffff;
+	padding: 40px;
+	width: 100%;
+	max-width: 100vw;
+	height: auto;
+}
+
+select{
+	padding: 10px;
+	border-radius: 3px;
+	border : 1px solid #cfcfcf;
+	outline: none;
+	text-align: center;
+}
+
+input{
+	padding: 10px;
+	text-align: center;
+	border-radius: 3px;
+	border: 1px solid #cfcfcf;
+	outline: none;
+}
+
+button{
+	color: #ffffff;
+	padding: 10px;
+	border-radius: 3px;
+	background: #0388d4;
+	border: none;
+	outline: none;
+}
+
+button a{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Overhead Menu */
+
+.menu{
+	background: #ffffff;
+	float: right;
+	padding: 20px;
+	font-size: 15px;
+	display: inline-block;
+	color: #000000;
+}
+
+.menu a{
+	color: #a3a3a3;
+	text-decoration: none;
+}
+
+.menu a:hover{
+	color: #000000;
+}
+
+.smallmenu a{
+	color: #000000;
+	text-decoration: none;
+}
+
+.menu button{
+	background: #ffffff;
+	border: 2px solid #f93426;
+	border-radius: 3px;
+	padding: 10px;
+	display: inline-block;
+}
+
+.menu button a{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.smallmenu{
+	background : #ffffff;
+	padding: 18px;
+	float: right;
+	color: #000000;
+	display: none;
+}
+
+#third{
+	background: #ffffff;
+	color: #222222;
+	padding: 30px;
+	height: auto;
+	width: 100%;
+	max-width: 100vw;
+}
+
+.menu .downbutton a{
+	color: #f93426;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.menu .downbutton:hover a{
+	color: #ffffff;
+}
+
+.material-icons.md-48{
+	font-size: 48px;
+}
+
+.material-icons.md-32{
+	font-size: 32px;
+}
+
+.javascript{
+	color: #3F75C0;
+}
+
+.downbutton{
+	color: #f93426;
+	border-radius: 3px;
+	padding: 10px;
+	background: transparent;
+	display: inline-block;
+	border: 2px solid #f93426;
+	transition: 0.01s;
+}
+
+.downbutton:hover{
+	color: #ffffff;
+	background: #f93426;
+}
+
+.gobutton{
+	color: #ffffff;
+	border-radius: 3px;
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	background: transparent;
+	display: inline-block;
+	border: 2px solid #ffffff;
+	transition: 0.01s;
+}
+
+.gobutton:hover{
+	color: #3F75C0;
+	background: #ffffff;
+}
+
+a{
+	text-decoration: none;
+}
+
+.arg{
+	color: #F9AE58;
+}
+
+.func{
+	color: #5FB3B3;
+}
+
+footer{
+	color: #ffffff;
+	overflow: hidden;
+	background: #272727;
+	font-size: 14px;
+	width: 100%;
+	max-width: 100vw;
+	padding: 0px;
+	border-bottom: 13px solid #222222;
+}
+
+footer .left{
+	width: 75%;
+	float: left;
+	padding: 40px;
+}
+
+footer .right{
+	width: 10%;
+	float: right;
+	padding: 40px;
+}
+
+footer a{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+#features{
+	background : #10a578;
+	color: #ffffff;
+	overflow: hidden;
+	padding: 30px;
+}
+
+.leftcard{
+	width: 20%;
+	color: #ffffff;
+	float: left;
+	margin-left: 3%;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+img{
+	vertical-align: middle;
+}

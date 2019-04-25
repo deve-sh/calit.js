@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calit.JS - Documentation</title>
+
+	<!-- META TAGS -->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Devesh Kumar">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Calendar, Utility, Calendar Utility, JavaScript, JavaScript Calendar Utility, Documentation">
+
+	<!-- STLYESHEETS -->
+
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" media="screen and (max-width: 750px)" href="smallscreen.css">
+	<link rel="stylesheet" media="screen and (max-width: 600px)" href="ultrasmall.css">
+	<link rel="icon" href="icon.png">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+	<!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	  // Add smooth scrolling to all links
+	  $("a").on('click', function(event) {
+
+	    // Make sure this.hash has a value before overriding default behavior
+	    if (this.hash !== "") {
+	      // Prevent default anchor click behavior
+	      event.preventDefault();
+
+	      // Store hash
+	      var hash = this.hash;
+
+	      // Using jQuery's animate() method to add smooth page scroll
+	      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+	      $('html, body').animate({
+	        scrollTop: (($(hash).offset().top)-20)
+	      }, 800, function(){
+	        // Add hash (#) to URL when done scrolling (default click behavior)
+	        window.location.hash = hash;
+	      });
+	    } // End if
+	  });
+	});
+	</script>
+</head>
+<body onload="setmonth();setcal('stylecal')" onresize='check()'>
+	<header>
+		<div class="left">
+		   Calit.JS <span class='followtext'>- Documentation</span>
+	    </div>
+	    <div class="menu">
+	    	<a href="index.html">Home</a> &nbsp&nbsp
+	    	<a href="#first">Features</a> &nbsp&nbsp
+	    	<a href="#second">Formatting</a> &nbsp&nbsp
+	    	<a href="#third">Styling</a> &nbsp&nbsp
+	    	<span class="downbutton" style="padding: 5px;"><a href='calit-min.js' target="_blank">Download</a></span>
+	    </div>
+	    <div class="smallmenu">
+	    	<span onclick='openNav()'><i class="material-icons md-32">reorder</i></span>
+	    </div>
+	</header>
+	<div id="mySidenav" class="sidenav" align="center">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <br>
+		  <a href="index.html" onclick="closeNav()">Home</a>
+	    	<a href="#first" onclick="closeNav()">Features</a>
+	    	<a href="#second" onclick="closeNav()">Formatting</a>
+	    	<a href="#third" onclick="closeNav()">Styling</a>
+	    	<br>
+	    	<span class="downbutton" style="padding: 5px;" onclick="closeNav()"><a href='calit-min.js' target="_blank">Download</a></span>
+	    	<br><br>
+	    	<div align="center"><hr width="70%" style="background: #ffffff; height : 2px; border: none;"></div>
+	</div>
+	<div id='first'>
+		<br><br>
+		A Customisable Utility to add Calendars to your webpages.
+		<br>
+		<p style="font-size: 15px;">
+			Calit.JS is a simple, small and effective way to add beautiful calendars to your webpages.<br/>
+			<ul style="font-size: 15px;">
+				<li>Easy to Install</li>
+				<li>Easy to Implement</li>
+				<li>No Dependencies</li>
+			</ul>
+
+			<span style='font-size: 15px;'>It is written in pure JavaScript, so its fast and fluid.
+				<br>
+				The '<b>setcal</b>( )' function has the following attributes.</span>
+		</p>
+		<div class="atom">
+			<span class="javascript">setcal</span>(<span class="arg">Element</span>, <span class="arg">Date</span>, <span class="arg">Month</span>, <span class="arg">Year</span>, <span class="arg">Calendar Background</span>, <span class="arg">Border Background</span>,
+			<span class="arg">Text Color</span>, <span class="arg">Highlight Color</span>);
+		</div>
+	</div>
+	<div id="second">
+		<div align="center"><h2>Formatting</h2></div>
+		<span style="font-size: 15px;">
+		The Utility uses Eight Key Parameters in total. One thing to note is that all the arguments are <b>Strings</b>.
+		<br><br>
+		<h3><u>Assigning To an Element</u></h3>
+		The <b>first</b> one is the element the calendar is supposed to be linked to. If you need to add a calendar to more than two elements, just use the function twice.
+		<br><br>
+		<div class="atom">
+			<span class="javascript">setcal</span>();
+			 &nbsp&nbsp&nbsp <span class="comment">&nbsp// This is correct, but only once.</span>
+		</div>
+		<br>
+		In the above, the function without any argument considers all arguments to be standard. I.e : The date is considered to be today, the element to be assigned is considered to be of the name 'calendar'. And so on...
+       <br>
+       <br>
+		<div class="atom">
+			<span class='javascript'>setcal</span>(<span class="aps">'</span><span class="str">element-one</span><span class="aps">'</span>);
+			<br><br>
+			<span class="javascript">setcal</span>(<span class="aps">'</span><span class="str">element-two</span><span class="aps">'</span>);
+
+			<span class="comment"> &nbsp&nbsp&nbsp // Now Correct, this will create calendars in both element-one and element-two.</span>
+		</div>
+		<br>
+		<h3><u>Setting a Date</u></h3>
+		Suppose we want to run the calendar but with a different date. We can do the following : 
+		<br><br>
+		<div class="atom">
+			<span class="javascript">setcal</span>(<span class="aps">'</span><span class="str">element</span><span class="aps">'</span>,<span class="aps">'</span><span class="str">25</span><span class="aps">'</span>);  &nbsp&nbsp&nbsp <span class="comment">// The highlighted date will be 25.</span>
+		</div>
+		<br>
+		<b>Note : </b>The date will be highlighted only if the date lies in the current month and the current year.
+		<br>
+		<h3><u>Setting a Month</u></h3>
+		Well, a calendar cannot be about just one month. Can it? In that case, just pass the third parameter as (<b>month number - 1</b>) (Inside quotes).
+		<br><br>
+		<div class="atom">
+			<span class="javascript">setcal</span>(<span class="aps">'</span><span class="str">element</span><span class="aps">'</span>,<span class="aps">'</span><span class="str">25</span><span class="aps">'</span>,<span class="aps">'</span><span class="str">7</span><span class="aps">'</span>);   &nbsp&nbsp&nbsp
+			<span class="comment">// The month will be August.</span>
+
+			<br><br>
+
+			<span class="javascript">setcal</span>(<span class="aps">'</span><span class="str">element</span><span class="aps">'</span>,<span class="aps">'</span><span class="str"></span><span class="aps">'</span>,<span class="aps">'</span><span class="str">7</span><span class="aps">'</span>);   &nbsp&nbsp&nbsp
+			<span class="comment">// Without Any highlighted date.</span>
+
+		</div>
+		<br>
+		<h3><u>Setting an Year</u></h3>
+		The Year is the fourth argument of the function.
+		<br>
+		<br>
+		<div class="atom">
+		<span class="javascript">setcal</span>(<span class="aps">'</span><span class="str">element</span><span class="aps">'</span>,<span class="aps">'</span><span class="str">25</span><span class="aps">'</span>,<span class="aps">'</span><span class="str">7</span><span class="aps">'</span>,<span class="aps">'</span><span class="str">2015</span><span class="aps">'</span>);   &nbsp&nbsp&nbsp
+			<span class="comment">// The year will be 2015.</span>
+
+			<br><br>
+
+			<span class="javascript">setcal</span>(<span class="aps">'</span><span class="str">element</span><span class="aps">'</span>,<span class="aps">'</span><span class="str"></span><span class="aps">'</span>,<span class="aps">'</span><span class="aps">'</span>,<span class="aps">'</span><span class="str">2017</span><span class="aps">'</span>);   &nbsp&nbsp&nbsp
+			<span class="comment">// Without Any highlighted date, or month. Just the year.</span>
+		</div>
+
+		<br>
+		<h3><u>Get the code you need</u></h3>
+		<br/>
+		<div align="center">
+		<select id='month' onchange="setcal('calendar','',this.selectedIndex,document.getElementById('year').value,document.getElementById('backg').value.toString(),document.getElementById('upperback').value.toString(),document.getElementById('textcol').value.toString(),document.getElementById('highcol').value.toString());getcode();getcode();">
+			<option>January</option>
+			<option>February</option>
+			<option>March</option>
+			<option>April</option>
+			<option>May</option>
+			<option>June</option>
+			<option>July</option>
+			<option>August</option>
+			<option>September</option>
+			<option>October</option>
+			<option>November</option>
+			<option>December</option>
+		</select>
+		&nbsp&nbsp
+		
+		<input id='year' placeholder="Year" min="1000" max="2100" type="number"> &nbsp&nbsp<button onclick="setcal('calendar','',document.getElementById('month').selectedIndex,document.getElementById('year').value,document.getElementById('backg').value.toString(),document.getElementById('upperback').value.toString(),document.getElementById('textcol').value.toString(),document.getElementById('highcol').value.toString());getcode();">GET CODE</button>
+		<br/>
+		<br/>
+		<div class="calender"><div id='calendar'></div></div>
+		<br>
+		<div class="atom" id='coder' style="display: none;" align="left"></div>
+	</div>
+	<br/>
+	   </span>
+
+	</div>
+	<div id="fourth" align="center" style="font-size: 15px;">
+		And That's Not The Only Thing It can do!
+	</div>
+	<div id="third" align="center">
+		<h2>Styling</h2>
+		The last four parameters are the styling options that rests with the user.
+		<br>Well, try it yourself.
+		<br><br>
+		<input type="text" placeholder="Background" id='backg'>
+		<br><br><input type="text" placeholder="Upper Border Colour" id='upperback'>
+		<br><br><input type="text" placeholder="Text Color" id='textcol'>
+		<br><br><input type="text" placeholder="Highlight Text Color" id='highcol'>
+		<br><br>
+		<button onclick="setcal('stylecal','',document.getElementById('month').selectedIndex,document.getElementById('year').value,document.getElementById('backg').value.toString(),document.getElementById('upperback').value.toString(),document.getElementById('textcol').value.toString(),document.getElementById('highcol').value.toString());stylecode();">SET AND GET CODE</button>
+		<br/>
+		<br>
+		
+		<div class="calender"><div id='stylecal'></div></div>
+	
+		<br/><br>
+		<div id='coderpa' style="display: none;" class="atom" align="left"></div>
+	</div>
+	<div id='features' align="center" style="font-size: 13px;">
+		No copyright. No Strings Attached.<br>Do Whatever You Want with it!
+	</div>
+	<footer>
+		<div class="left">
+			Designed and Developed By <a href="https://deve-sh.github.io/website" target="_blank">Devesh Kumar</a>.
+		</div>
+		<div class="right">
+			<a href="https://github.com/deve-sh/calit.js" target="_blank"><img src='git.png' width="16" height="16"></a>
+		</div>
+	</footer>
+	<script type="text/javascript" src="webscripts.js"></script>
+	<script type="text/javascript" src="calit-min.js"></script>
+</body>
+</html>

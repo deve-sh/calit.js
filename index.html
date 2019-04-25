@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calit.JS - A Fluid JavaScript Calendar Utility</title>
+
+	<!-- META TAGS -->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Devesh Kumar">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Calendar, Utility, Calendar Utility, JavaScript, JavaScript Calendar Utility">
+
+	<!-- STLYESHEETS -->
+
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" media="screen and (max-width: 750px)" href="smallscreen.css">
+	<link rel="stylesheet" media="screen and (max-width: 600px)" href="ultrasmall.css">
+	<link rel="icon" href="icon.png">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+	<!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	  // Add smooth scrolling to all links
+	  $("a").on('click', function(event) {
+
+	    // Make sure this.hash has a value before overriding default behavior
+	    if (this.hash !== "") {
+	      // Prevent default anchor click behavior
+	      event.preventDefault();
+
+	      // Store hash
+	      var hash = this.hash;
+
+	      // Using jQuery's animate() method to add smooth page scroll
+	      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+	      $('html, body').animate({
+	        scrollTop: $(hash).offset().top
+	      }, 800, function(){
+
+	        // Add hash (#) to URL when done scrolling (default click behavior)
+	        window.location.hash = hash;
+	      });
+	    } // End if
+	  });
+	});
+	</script>
+</head>
+<body onload="setmonth();check();" onresize="check()">
+	<header>
+		<div class="left">
+		    Calit.JS
+	    </div>
+	    <div class="menu">
+	    	<a href="#second">Try It Out</a>
+	    	&nbsp&nbsp&nbsp
+	    	<a href="#third">Implementation</a>
+	    	&nbsp&nbsp&nbsp
+	    	<a href="doc.html">Docs</a>
+	    	&nbsp&nbsp
+	    	<span class="downbutton" style="padding: 5px;"><a href='calit-min.js' target="_blank">Download</a></span>
+	    </div>
+	    <div class="smallmenu">
+	    	<span onclick='openNav()'><i class="material-icons md-32">reorder</i></span>
+	    </div>
+	    <div id="mySidenav" class="sidenav" align="center">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="#second" onclick="closeNav()">Try It Out</a>
+
+	    	<a href="#third" onclick="closeNav()">
+	    	
+	    	<br>
+	    	Implementation</a>
+	    	
+	    	<br>
+	    	<a href="doc.html" onclick="closeNav()">Documentation</a>
+	    	<br>
+	    	<span class="downbutton" style="padding: 5px;" onclick="closeNav()"><a href='calit-min.js' target="_blank">Download</a></span>
+	    	<br><br>
+	    	<div align="center"><hr width="70%" style="background: #ffffff; height : 2px; border: none;"></div>
+		</div>
+	</header>
+	<div id="first">
+		<br/>
+		<br/>
+		A Calendar Utility you probably don't need. <br>We have it anyway.
+		<br>
+		<span class="smalltext">It's as simple as this : </span>
+		<br>
+		<br>
+		<div class="atom">
+			<span><</span><span class="tag">div</span> <span class="att">id</span>=<span class="aps">"</span><span class="str">calendar</span><span class="aps">"</span><span>></span><span><</span>/<span class="tag">div</span><span>></span>
+			&nbsp&nbsp&nbsp&nbsp<span class="comment"><span><</span>!-- Element  --<span>></span></span>
+		</div>
+		<br/>
+		<div class="atom">
+			<span><</span><span class='tag'>script</span> <span class="att">type</span>=<span class="aps">"</span><span class="str">text/javascript</span><span class="aps">"</span> <span class="att">src</span>=<span class="aps">"</span><span class="str">calit-min.js</span><span class="aps">"</span><span>></span><span><</span>/<span class='tag'>script</span><span>></span>
+		</div>
+	</div>
+	<div id='features' align="center">
+		<div>
+		<div class="leftcard" style="margin-left: 5%;">
+			<i class="material-icons">photo_size_select_small</i>
+			<br>3KB</div>&nbsp&nbsp
+		<div class="leftcard">
+			<i class="material-icons">dashboard</i><br>Flexible</div>
+		<div class="leftcard">
+		<i class="material-icons">
+done_all
+</i><br>Easy</div>
+        <div class="leftcard">
+        	<i class="material-icons">
+favorite
+</i><br>
+Beautiful
+        </div>
+    </div>
+	</div>
+	<div id='second' align="center">
+		<h3>Everything just works!</h3>
+		Try it yourself.
+		<br/><br/>
+		<select id='month' onchange="setcal('calendar','',(this.selectedIndex).toString(),parseInt(document.getElementById('year').value))">
+			<option>January</option>
+			<option>February</option>
+			<option>March</option>
+			<option>April</option>
+			<option>May</option>
+			<option>June</option>
+			<option>July</option>
+			<option>August</option>
+			<option>September</option>
+			<option>October</option>
+			<option>November</option>
+			<option>December</option>
+		</select>
+		&nbsp&nbsp
+		<input id='year' placeholder="Year" min="1000" max="2100" type="number"> &nbsp&nbsp<button onclick="setcal('calendar','',document.getElementById('month').selectedIndex,document.getElementById('year').value)">SET</button>
+		<br/>
+		<br/>
+		<div class="calender"><div id='calendar'></div></div>
+	</div>
+	<div align="center" id='third'>
+		<h3>Its simple.</h3>
+		<div align='left'>
+			Just Create An Element 
+			<br/>
+			<br/>
+			<div class="atom">
+			<span><</span><span class="tag">div</span> <span class="att">id</span>=<span class="aps">"</span><span class="str">element</span><span class="aps">"</span><span>></span><span><</span>/<span class="tag">div</span><span>></span>
+		    </div>
+		    <br/><br/>
+		    Add this to the body tag :
+		    <br/><br/>
+		    <div class="atom">
+			<span><</span><span class="tag">body</span> <span class="att">onload</span>=<span class="aps">"</span><span class="javascript">setcal</span>(<span class="aps">'</span><span class='str'>element</span><span class="aps">'</span>)<span class="aps">"</span><span>></span><span><</span>/<span class="tag">div</span><span>></span>
+		    </div>
+		    <br/><br/>
+		    Download the Utility And Include it as a script : 
+		    <br/><br/>
+		</div>
+		<a href="calit-min.js" target="_blank"><div class="downbutton"><i class="material-icons" style="vertical-align: middle;">get_app</i> &nbsp&nbspDownload</div></a>
+		<div align="left">
+			<br/>
+			Or just include it from the web : 
+			<br><br>
+			<div class="atom">
+				<span><</span><span class='tag'>script</span> <span class="att">type</span>=<span class="aps">"</span><span class="str">text/javascript</span><span class="aps">"</span> <span class="att">src</span>=<span class="aps">"</span><span class="str">https://raw.githubusercontent.com/deve-sh/calit.js/master/calit-min.js</span><span class="aps">"</span><span>></span><span><</span>/<span class='tag'>script</span><span>></span>
+			</div>
+		</div>
+	</div>
+	<div align="center" id='fourth'>
+		Read the entire documentation and what you can do with Calit.JS.
+		<br/>
+		<br/>
+		<a href="doc.html"><div class="gobutton">Here</div></a>
+		<br/>
+	</div>
+	<footer>
+		<div class="left">
+			Designed and Developed By <a href="https://deve-sh.github.io/website" target="_blank">Devesh Kumar</a>.
+	    </div>
+	    <div class="right" align="right">
+	    	<a href="https://github.com/deve-sh/calit.js" target="_blank"><img src='git.png' width="16" height="16"></a>
+	    </div>
+	</footer>
+
+<script type="text/javascript" src="webscripts.js"></script>
+<script type="text/javascript" src="calit.js"></script>
+</body>
+</html>

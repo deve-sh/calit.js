@@ -1,0 +1,30 @@
+#first{
+	font-size: 23px;
+	height: auto;
+}
+
+.smalltext{
+	font-size: 16px;
+}
+
+.atom{
+	font-size: 15px;
+}
+
+#calendar{
+	text-align: left;
+}
+
+.calender{
+	text-align: left;
+	margin-left: -30px;
+	max-width: 80%;
+}
+
+.footer .right{
+	width: 25%;
+}
+
+.footer .left{
+	width: 75%;
+}
